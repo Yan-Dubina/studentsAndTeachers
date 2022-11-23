@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/student")
-public class StudentController {
+public class  StudentController {
 
   private final StudentMapper studentMapper;
   private final StudentService studentService;
