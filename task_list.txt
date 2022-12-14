@@ -3,4 +3,4 @@
 2.  Postawić Angulara;
 3.  Entity - Towar: Muzyka  --- Płyty, CD, Sprzęt(do wymysłenia), Użytkownicy(Admin, Użytkownik);
 4.  request findAll, find... towar
-5. testCommit
+5. testCommi
