@@ -1,9 +1,9 @@
 package com.example.studentandteacherapi;
 
-import com.example.studentandteacherapi.domain.Student;
-import com.example.studentandteacherapi.domain.Teacher;
-import com.example.studentandteacherapi.repository.StudentRepository;
-import com.example.studentandteacherapi.repository.TeacherRepository;
+import com.example.studentandteacherapi.domain.Vinyl;
+import com.example.studentandteacherapi.domain.Artist;
+import com.example.studentandteacherapi.repository.VinylRepository;
+import com.example.studentandteacherapi.repository.ArtistRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -11,62 +11,62 @@ import org.springframework.stereotype.Component;
 @Component
 public class TestData implements ApplicationRunner {
 
-  private StudentRepository studentRepository;
-  private TeacherRepository teacherRepository;
+  private VinylRepository vinylRepository;
+  private ArtistRepository artistRepository;
 
-  public TestData(StudentRepository studentRepository, TeacherRepository teacherRepository) {
-    this.studentRepository = studentRepository;
-    this.teacherRepository = teacherRepository;
+  public TestData(VinylRepository vinylRepository, ArtistRepository artistRepository) {
+    this.vinylRepository = vinylRepository;
+    this.artistRepository = artistRepository;
   }
 
   @Override
   public void run(ApplicationArguments args) {
-    Student testStudent = Student.builder()
+    Vinyl testVinyl = Vinyl.builder()
         .name("Andry")
         .surname("Kowalski")
         .email("corsar@gmail.com")
         .age(20)
         .course("IT")
         .build();
-    studentRepository.save(testStudent);
+    vinylRepository.save(testVinyl);
 
-    testStudent = Student.builder()
+    testVinyl = Vinyl.builder()
         .name("Jonny")
         .surname("Witewski")
         .email("witold@mail.com")
         .age(20)
         .course("HR")
         .build();
-    studentRepository.save(testStudent);
+    vinylRepository.save(testVinyl);
 
-    testStudent = Student.builder()
+    testVinyl = Vinyl.builder()
         .name("Tommy")
         .surname("Java")
         .email("java@mail.ua")
         .age(20)
         .course("IT")
         .build();
-    studentRepository.save(testStudent);
+    vinylRepository.save(testVinyl);
 
-    Teacher teacher = Teacher.builder()
+    Artist artist = Artist.builder()
         .name("Andy")
         .surname("Smith")
         .email("java@mail.ua")
         .age(20)
         .course("IT")
         .build();
-    teacherRepository.save(teacher);
+    artistRepository.save(artist);
 
-    teacher = Teacher.builder()
+    artist = Artist.builder()
         .name("Madison")
         .surname("Jones")
         .email("java@gmail.com")
         .age(20)
         .course("IT")
         .build();
-    teacherRepository.save(teacher);
+    artistRepository.save(artist);
 
-    teacher = Teacher.builder()
+    artist = Artist.builder()
         .name("George")
         .surname("Davies")
         .email("spring@mail.com")
@@ -74,7 +74,7 @@ public class TestData implements ApplicationRunner {
         .course("IT")
         .build();
 
-    teacherRepository.save(teacher);
+    artistRepository.save(artist);
   }
 }
 
