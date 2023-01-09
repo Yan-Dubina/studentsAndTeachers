@@ -1,0 +1,4 @@
+enum TypeOfProduct {
+  CD,
+  Vinyl,
+}
