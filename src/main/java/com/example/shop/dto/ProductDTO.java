@@ -1,5 +1,6 @@
 package com.example.shop.dto;
 
+import com.example.shop.domain.Comment;
 import com.example.shop.enums.Type;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +16,7 @@ public class ProductDTO {
   private Type type;
   private String description;
   private Long cost;
-  private List<CommentDTO> comments;
+  private List<Comment> comments;
   private List<ArtistDTO> artists;
+  private byte[] image;
 }

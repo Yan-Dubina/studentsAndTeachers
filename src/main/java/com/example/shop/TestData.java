@@ -1,16 +1,20 @@
 package com.example.shop;
 
 import com.example.shop.domain.Comment;
+import com.example.shop.domain.Image;
 import com.example.shop.domain.Product;
 import com.example.shop.domain.Artist;
 import com.example.shop.enums.Type;
 import com.example.shop.repository.CommentRepository;
+import com.example.shop.repository.ImageRepository;
 import com.example.shop.repository.ProductRepository;
 import com.example.shop.repository.ArtistRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
 import java.sql.Date;
 import java.util.Collections;
 import java.util.List;
@@ -21,6 +25,8 @@ public class TestData implements ApplicationRunner {
   private ProductRepository productRepository;
   private ArtistRepository artistRepository;
   private CommentRepository commentRepository;
+  @Autowired
+  private ImageRepository repository;
 
   public TestData(ProductRepository productRepository, ArtistRepository artistRepository, CommentRepository commentRepository) {
     this.productRepository = productRepository;
@@ -47,7 +53,7 @@ public class TestData implements ApplicationRunner {
             .description("test")
             .comments(Collections.emptyList()).build();
 
-    Comment comment = Comment.builder().date(new Date(2600000L)).description("description")
+    Comment comment = Comment.builder().description("description")
             .shortDescription("short").product(productRepository.save(testProduct)).rate(3).build();
     commentRepository.save(comment);
 
@@ -75,6 +81,9 @@ public class TestData implements ApplicationRunner {
         .course("IT")
         .build();
 
+
+    Image image = Image.builder().productId(1L).image(new File("src/main/resources/static/rammstein.jpeg")).build();
+    repository.save(image);
     artistRepository.save(artist);
   }
 }

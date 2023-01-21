@@ -6,31 +6,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.io.File;
 
 @Builder
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Comment {
+public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String description;
-    private String shortDescription;
-    //private Date date;
-    private Integer rate;
+    @Column(name = "product_id")
+    private Long productId;
 
-    @ManyToOne
-    private Product product;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    File image;
 }

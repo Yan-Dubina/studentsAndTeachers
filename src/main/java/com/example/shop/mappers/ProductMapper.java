@@ -3,11 +3,17 @@ package com.example.shop.mappers;
 import com.example.shop.domain.Product;
 import com.example.shop.domain.Artist;
 import com.example.shop.dto.*;
+import com.example.shop.enums.Type;
 import com.example.shop.repository.ArtistRepository;
+import com.example.shop.services.ImageService;
+import org.apache.commons.io.FileUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Scope("singleton")
@@ -16,6 +22,8 @@ public class ProductMapper {
 
   private final ArtistRepository artistRepository;
   private final ArtistMapper artistMapper;
+  @Autowired
+  ImageService imageService;
 
   public ProductMapper(ArtistRepository artistRepository, ArtistMapper artistMapper) {
     this.artistRepository = artistRepository;
@@ -23,8 +31,24 @@ public class ProductMapper {
   }
 
   public ProductDTO domainToDTO(Product product) {
-    return ProductDTO.builder()
-        .build();
+    try {
+      return ProductDTO.builder()
+              .artists(product.getArtists().stream().map(artistMapper::domainToDTO).collect(Collectors.toList()))
+              .comments(product.getComments())
+              .cost(product.getCost())
+              .id(product.getId())
+              .image(FileUtils.readFileToByteArray(imageService.getImageForProduct(product.getId())))
+              .type(product.getType())
+              .build();
+    } catch (Exception ignored) {
+      return ProductDTO.builder()
+              .artists(product.getArtists().stream().map(artistMapper::domainToDTO).collect(Collectors.toList()))
+              .comments(product.getComments())
+              .cost(product.getCost())
+              .id(product.getId())
+              .type(product.getType())
+              .build();
+    }
   }
 
 

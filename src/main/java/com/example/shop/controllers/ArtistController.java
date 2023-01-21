@@ -25,13 +25,11 @@ public class ArtistController {
 
     private final ArtistService artistService;
     private final ArtistMapper artistMapper;
-    private final ProductMapper productMapper;
+
 
     public ArtistController(ArtistService artistService, ArtistMapper artistMapper, ProductMapper productMapper) {
         this.artistService = artistService;
         this.artistMapper = artistMapper;
-        this.productMapper = productMapper;
-
     }
 
     @GetMapping()
