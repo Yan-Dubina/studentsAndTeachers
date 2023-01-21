@@ -1,0 +1,26 @@
+<div>
+  <button mat-button [matMenuTriggerFor]="vinylsMenu">Vinyls</button>
+  <mat-menu #vinylsMenu="matMenu" yPosition="above">
+    <button mat-menu-item *ngFor="let style of vinylStyles">{{style}}</button>
+    <button mat-menu-item >All</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="cdMenu">CD</button>
+  <mat-menu #cdMenu="matMenu" yPosition="below">
+    <button mat-menu-item *ngFor="let style of cdStyles">{{style}}</button>
+    <button mat-menu-item >All</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="beforeMenu">Merch</button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu>
+
+
+  <button mat-button [matMenuTriggerFor]="afterMenu">Tickets</button>
+  <mat-menu #afterMenu="matMenu" xPosition="after">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu>
+</div>

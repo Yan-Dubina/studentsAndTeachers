@@ -21,16 +21,13 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder) {
 
-    if (this.tokenStorage.getUser()) {
-      this.router.navigate(['main']);
-    }
   }
 
   ngOnInit(): void {
-    this.registerForm = this.createLoginForm();
+    this.registerForm = this.createRegisterForm();
   }
 
-  createLoginForm(): FormGroup {
+  createRegisterForm(): FormGroup {
     return this.fb.group({
       username: ['', Validators.compose([Validators.required])],
       password: ['', Validators.compose([Validators.required])],
@@ -45,11 +42,15 @@ export class RegisterComponent implements OnInit {
     return (): ValidationErrors | null => {
       const control1 = this.registerForm.controls['password'];
       const control2 = this.registerForm.controls['confirmPassword'];
-      return control1.value !== control2.value ? {notEquivalent: true} : null;
+      const validation = control1.value !== control2.value;
+      if (validation) {
+        this.notificationService.showSnackBar("Password isn't same!")
+        return {notEquivalent: true};
+      } else return null;
     }
   }
 
-  submit(): void {
+  register(): void {
     this.authService.register({
       username: this.registerForm.value.username,
       password: this.registerForm.value.password,
@@ -70,6 +71,10 @@ export class RegisterComponent implements OnInit {
       console.log(error);
       this.notificationService.showSnackBar(error.message);
     });
+  }
+
+  login():void {
+    this.router.navigate(['/login']);
   }
 
 }

@@ -21,7 +21,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/teacher")
+@RequestMapping("/artist")
 public class ArtistController {
 
   private final ArtistService artistService;
@@ -97,7 +97,7 @@ public class ArtistController {
     }
   }
 
-  @GetMapping("/students")
+  @GetMapping("/vinyls")
   public ResponseEntity<?> getVinylListForArtist(@RequestParam Long id) {
     return artistService.getArtist(id)
         .map(artistMapper::domainToDTO)

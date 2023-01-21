@@ -1,0 +1,25 @@
+<p xmlns="http://www.w3.org/1999/html">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span class="logo" aria-hidden="false">
+        <img src="./assets/logo.ico" alt=""/>
+      </span>
+      <span>Soul of Cinder</span>
+      <span class="example-spacer"></span>
+      <span *ngIf="isLogged else loggingBlock">
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">
+        verified_user
+      </mat-icon>
+      </span>
+      <ng-template #loggingBlock>
+        <span>
+          <button mat-raised-button color="accent" (click)="login()">LogIn</button>
+        </span>
+      </ng-template>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row style="justify-content: flex-end">
+      <app-navigation></app-navigation>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</p>
