@@ -1,0 +1,51 @@
+.main{
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+}
+h1{
+  margin-top: 10px;
+  font-size: 50px;
+}
+
+img{
+  width: 200px;
+  height: 200px;
+}
+.title{
+  display: flex;
+}
+h1{
+  margin-left: 30px;
+}
+.comment{
+  background-color: #EAEAEA;
+  padding: 20px;
+}
+.comment-container{
+  height: 40px;
+  border-radius: 25px;
+  background-color: lightgrey;
+}
+.comment-content{
+  padding: 10px;
+}
+.description{
+  margin: 20px;
+}
+button{
+  border-radius: 25px;
+  margin-left: 15px;
+  margin-top: 10px;
+  width: 200px;
+  height: 40px;
+}
+.main-title{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+h4{
+  margin-left: 40px;
+}

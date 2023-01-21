@@ -1,5 +1,5 @@
 export interface Singer {
-  id?: number;
-  bio: string;
+  id: number;
+  name: string;
 
 }

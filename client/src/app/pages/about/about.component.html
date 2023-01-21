@@ -1,1 +1,19 @@
-<p>about works!</p>
+<div class="main">
+  <div class="title">
+    <img src="favicon.ico">
+    <div class="main-title">
+      <h1>{{prod1.type}}</h1>
+      <h4>{{prod1.singer.name}}</h4>
+      <button (click)="addToCart(prod1.id)">Add to cart</button>
+    </div>
+  </div>
+  <div class="description">
+    <p>{{prod1.description}}</p>
+  </div>
+  <div class="comment">
+    <div class="comment-container">
+      <p class="comment-content">Ala ma kota a kot ma ale</p>
+    </div>
+  </div>
+</div>
+
