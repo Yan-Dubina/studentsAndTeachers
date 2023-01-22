@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Component
@@ -32,7 +31,7 @@ public class ArtistMapper {
   }
 
   public Artist dtoToDomain(CreateArtistRequest teacher) {
-    List<Product> products = productRepository.findAllById(teacher.getProducts());
+    List<Product> products = productRepository.findAllByIdIn(teacher.getProducts());
     return Artist.builder()
         .name(teacher.getName())
         .products(products)
@@ -40,7 +39,7 @@ public class ArtistMapper {
   }
 
   public Artist dtoToDomain(EditArtistRequest teacher) {
-    List<Product> vinyls = (List<Product>) productRepository.findAllById(teacher.getProducts());
+    List<Product> vinyls = (List<Product>) productRepository.findAllByIdIn(teacher.getProducts());
     return Artist.builder()
         .id(teacher.getId())
         .name(teacher.getName())

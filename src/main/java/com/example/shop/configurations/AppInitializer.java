@@ -35,4 +35,5 @@ class WebConfig extends WebMvcConfigurerAdapter {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**");
     }
+    //todo dodac token dla usera
 }

@@ -1,20 +1,13 @@
 package com.example.shop.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-@Builder
 @AllArgsConstructor
 @Data
-public class ArtistDTO {
-
-  Long id;
-
-  String name;
-
-  List<ProductDTO> products;
-
+public class OrderDTO {
+    List<ProductDTO> products;
 }

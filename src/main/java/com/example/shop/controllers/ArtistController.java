@@ -6,7 +6,6 @@ import com.example.shop.dto.ArtistDTO;
 import com.example.shop.dto.CreateArtistRequest;
 import com.example.shop.dto.EditArtistRequest;
 import com.example.shop.mappers.ArtistMapper;
-import com.example.shop.mappers.ProductMapper;
 import com.example.shop.services.ArtistService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,8 +25,7 @@ public class ArtistController {
     private final ArtistService artistService;
     private final ArtistMapper artistMapper;
 
-
-    public ArtistController(ArtistService artistService, ArtistMapper artistMapper, ProductMapper productMapper) {
+    public ArtistController(ArtistService artistService, ArtistMapper artistMapper) {
         this.artistService = artistService;
         this.artistMapper = artistMapper;
     }
@@ -40,7 +38,7 @@ public class ArtistController {
 
     @DeleteMapping
     public ResponseEntity<Void> deleteArtistById(@RequestParam Long id) {
-        return artistService.deleteArtistById(id).map(teacher ->
+        return artistService.deleteArtistById(id).map(artist ->
                 ResponseEntity.ok().<Void>build()).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
@@ -77,7 +75,7 @@ public class ArtistController {
     public ResponseEntity<?> getVinylListForArtist(@RequestParam Long id) {
         return artistService.getArtist(id)
                 .map(artistMapper::domainToDTO)
-                .map(artistDTO -> artistDTO.getVinyls().stream())
+                .map(artistDTO -> artistDTO.getProducts().stream())
                 .map(ResponseEntity::ok).orElse(ResponseEntity.ok().build());
     }
 }
