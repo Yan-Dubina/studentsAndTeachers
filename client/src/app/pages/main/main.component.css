@@ -1,31 +1,7 @@
-.product-table{
-  width:80%;
-  margin-left: 10%;
-  margin-right: 10%;
-}
-.table-body:nth-child(2n){
-  background-color: #EAEAEA;
-}
-.table-body:hover{
+.shopCart{
+  padding: 10px;
   background-color: lightgrey;
-}
-  td {
-    height: 50px;
-  }
-.addCart{
-  background-color: white;
-}
-.type{
-  cursor: pointer;
-}
-button {
-  border-radius: 25px;
-  margin-left: 15px;
-  width: 50%;
-  height: 70%;
-}
-
-img{
-  width: 50px;
-  height: 50px;
+  position: fixed;
+  margin-bottom: 10px;
+  z-index: 999;
 }

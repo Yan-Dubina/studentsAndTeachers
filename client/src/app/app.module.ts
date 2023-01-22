@@ -25,6 +25,7 @@ import {NgOptimizedImage} from "@angular/common";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { ShopCardComponent } from './pages/shop-card/shop-card.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     AboutComponent,
     ToolbarComponent,
     ProductCardComponent,
-    ProductListComponent
+    ProductListComponent,
+    ShopCardComponent
   ],
   imports: [
     BrowserModule,
