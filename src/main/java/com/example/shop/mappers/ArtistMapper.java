@@ -32,7 +32,7 @@ public class ArtistMapper {
   }
 
   public Artist dtoToDomain(CreateArtistRequest teacher) {
-    List<Product> products = (List<Product>) productRepository.findAllById(teacher.getProducts());
+    List<Product> products = productRepository.findAllById(teacher.getProducts());
     return Artist.builder()
         .name(teacher.getName())
         .products(products)

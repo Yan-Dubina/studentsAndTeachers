@@ -11,7 +11,6 @@ import java.sql.Date;
 @AllArgsConstructor
 @Data
 public class CommentDTO {
-    private Long id;
     private String description;
     private String shortDescription;
     private Date date;

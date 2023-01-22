@@ -48,10 +48,11 @@ public class TestData implements ApplicationRunner {
             .artists(List.of(artist))
             .description("test")
             .comments(Collections.emptyList()).build();
-    Comment comment1 = Comment.builder().description("description").date(new Date(100000L))
+    java.util.Date date = new java.util.Date();
+    Comment comment1 = Comment.builder().description("description").date(new java.sql.Date(date.getTime()))
             .shortDescription("short").product(productRepository.save(testProduct)).rate(3).build();
 
-    Comment comment = Comment.builder().description("description").date(new Date(100000L))
+    Comment comment = Comment.builder().description("description").date(new java.sql.Date(date.getTime()))
             .shortDescription("short").product(productRepository.save(testProduct)).rate(3).build();
 
     testProduct = Product.builder()
@@ -62,14 +63,10 @@ public class TestData implements ApplicationRunner {
             .comments(List.of(commentRepository.save(comment))).build();
     productRepository.save(testProduct);
     artist = Artist.builder()
-        .name("Madison")
-        .build();
+            .name("Madison")
+            .products(productRepository.findAll())
+            .build();
     artistRepository.save(artist);
-
-    artist = Artist.builder()
-        .name("George")
-        .build();
-
 
     Image image = Image.builder().productId(1L).image(new File("src/main/resources/static/rammstein.jpeg")).build();
     repository.save(image);
