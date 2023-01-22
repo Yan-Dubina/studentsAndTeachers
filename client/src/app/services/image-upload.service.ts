@@ -12,7 +12,7 @@ export class ImageUploadService {
   constructor(private http: HttpClient) {
   }
 
-  uploadImageForProduct(file: File, type: TypeOfProduct): Observable<any> {
+  uploadImageForProduct(file: File, type: Type): Observable<any> {
     const uploadData = new FormData();
     uploadData.set('file', file);
     return this.http.post(IMAGE_API + type, uploadData);
@@ -28,7 +28,7 @@ export class ImageUploadService {
     return this.http.get(IMAGE_API + 'user');
   }
 
-  getImageForProduct(productId: number, type: TypeOfProduct): Observable<any> {
+  getImageForProduct(productId: number, type: Type): Observable<any> {
     return this.http.get(IMAGE_API + type + '?id=' + productId);
   }
 

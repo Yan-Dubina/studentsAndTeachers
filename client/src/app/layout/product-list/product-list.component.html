@@ -1,0 +1,7 @@
+<mat-grid-list cols="4" rowHeight="4:4">
+  <mat-grid-tile class="shadow-2xl shadow-indigo-500/50" *ngFor="let product of products">
+    <app-product-card [product]=product></app-product-card>
+  </mat-grid-tile>
+  <mat-paginator  [length]="200" [pageSizeOptions]="[10, 20, 30]" aria-label="Select page">
+  </mat-paginator>
+</mat-grid-list>

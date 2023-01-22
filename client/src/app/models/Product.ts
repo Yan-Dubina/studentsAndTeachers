@@ -1,12 +1,13 @@
 import {Comment} from './Comment';
-import {Singer} from "./Singer";
+import {Artist} from "./Artist";
+import {Type} from "./Type";
 
 export interface Product {
   id: number;
-  type: string;
+  type: Type;
   image?: File;
   cost: number;
   description: string;
   comments?: Comment[];
-  singer: Singer;
+  artist: Artist;
 }

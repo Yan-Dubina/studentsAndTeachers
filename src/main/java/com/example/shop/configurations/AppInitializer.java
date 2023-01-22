@@ -1,4 +1,10 @@
-//package com.example.studentandteacherapi.configurations;
+package com.example.shop.configurations;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
 //
 //import org.springframework.web.WebApplicationInitializer;
 //import org.springframework.web.context.ContextLoaderListener;
@@ -21,3 +27,12 @@
 //                .addMappingForUrlPatterns(null, false, "/*");
 //    }
 //}
+@Configuration
+@EnableWebMvc
+class WebConfig extends WebMvcConfigurerAdapter {
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**");
+    }
+}

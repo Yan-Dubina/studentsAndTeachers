@@ -28,11 +28,6 @@ public class ArtistMapper {
     return ArtistDTO.builder()
         .id(artist.getId())
         .name(artist.getName())
-        .surname(artist.getSurname())
-        .email(artist.getEmail())
-        .age(artist.getAge())
-        .vinyls(artist.getProducts().stream().map(productMapper::domainToDTO).collect(Collectors.toList()))
-        .subject(artist.getCourse())
         .build();
   }
 
@@ -40,9 +35,6 @@ public class ArtistMapper {
     List<Product> products = (List<Product>) productRepository.findAllById(teacher.getProducts());
     return Artist.builder()
         .name(teacher.getName())
-        .surname(teacher.getSurname())
-        .email(teacher.getEmail())
-        .age(teacher.getAge())
         .products(products)
         .build();
   }
@@ -52,7 +44,6 @@ public class ArtistMapper {
     return Artist.builder()
         .id(teacher.getId())
         .name(teacher.getName())
-        .age(teacher.getAge())
         .products(vinyls)
         .build();
   }

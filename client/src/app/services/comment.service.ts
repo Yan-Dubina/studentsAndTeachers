@@ -12,13 +12,13 @@ export class CommentService {
   constructor(private http: HttpClient) {
   }
 
-  addComment(productId: number, type: TypeOfProduct, message: string): Observable<any> {
+  addComment(productId: number, type: Type, message: string): Observable<any> {
     return this.http.post(COMMENT_API+'?productId='+productId+'&type='+type, {
       message: message
     });
   }
 
-  getComments(productId: number, type: TypeOfProduct): Observable<any> {
+  getComments(productId: number, type: Type): Observable<any> {
     return this.http.get(COMMENT_API+'?productId='+productId+'&type='+type);
   }
 

@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {Singer} from "../../models/Singer";
+import {Artist} from "../../models/Artist";
 import {Product} from "../../models/Product";
+import {Type} from "../../models/Type";
 
 @Component({
   selector: 'app-about',
@@ -14,11 +15,12 @@ export class AboutComponent implements OnInit{
 
   information: string;
 
-  sing1: Singer = {
+  sing1: Artist = {
     id: 1, name: "Ala"
   }
   prod1: Product = {
-    cost: 10, description: "Ala ma kota a kot ma ale", id: 1, singer: this.sing1, type: "Ala"
+    comments: [], image: undefined, type: Type.CD,
+    cost: 10, description: "Ala ma kota a kot ma ale", id: 1, artist: this.sing1
   }
   ngOnInit(): void {
     this.Activatedroute.queryParams.subscribe(params => {

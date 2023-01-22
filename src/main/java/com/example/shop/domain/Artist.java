@@ -21,15 +21,7 @@ public class Artist {
 
   String name;
 
-  String surname;
-
-
-  String email;
-
-  int age;
-
   @ManyToMany
   List<Product> products;
 
-  String course;
 }

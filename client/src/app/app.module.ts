@@ -17,6 +17,12 @@ import { AboutComponent } from './pages/about/about.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatMenuModule} from "@angular/material/menu";
 import { ToolbarComponent } from './layout/toolbar/toolbar.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ProductListComponent } from './layout/product-list/product-list.component';
+import {MatGridList, MatGridListModule} from "@angular/material/grid-list";
+import {MatCardModule} from "@angular/material/card";
+import {NgOptimizedImage} from "@angular/common";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -26,7 +32,9 @@ import { ToolbarComponent } from './layout/toolbar/toolbar.component';
     NavigationComponent,
     MainComponent,
     AboutComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ProductCardComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +45,10 @@ import { ToolbarComponent } from './layout/toolbar/toolbar.component';
     FormsModule,
     ReactiveFormsModule,
     MatTabsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatGridListModule,
+    MatPaginatorModule,
+    MatCardModule
   ],
   providers: [authInterceptorProviders, authErrorInterceptorProvider],
   bootstrap: [AppComponent]

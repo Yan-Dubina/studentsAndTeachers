@@ -57,20 +57,6 @@ public class ArtistController {
         }
     }
 
-    @GetMapping("/search")
-    public ResponseEntity<List<ArtistDTO>> getArtistsByNameAndSurname(@RequestParam Optional<String> name,
-                                                                      @RequestParam Optional<String> surname,
-                                                                      @RequestParam String type) {
-        if (type.equals("OR")) {
-            List<ArtistDTO> students = artistService.findByNameOrSurname(name, surname).stream()
-                    .map(artistMapper::domainToDTO).collect(Collectors.toList());
-            return ResponseEntity.ok(students);
-        } else {
-            List<ArtistDTO> students = artistService.findByNameAndSurname(name, surname).stream()
-                    .map(artistMapper::domainToDTO).collect(Collectors.toList());
-            return ResponseEntity.ok(students);
-        }
-    }
 
     @PostMapping
     public ResponseEntity<Void> createNewArtist(@Valid @RequestBody CreateArtistRequest body) {

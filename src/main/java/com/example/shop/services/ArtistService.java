@@ -16,8 +16,4 @@ public interface ArtistService {
 
   Optional<Artist> updateArtist(Artist artist);
 
-  List<Artist> findByNameAndSurname(Optional<String> name, Optional<String> surname);
-
-  List<Artist> findByNameOrSurname(Optional<String> name, Optional<String> surname);
-
 }

@@ -38,10 +38,6 @@ public class TestData implements ApplicationRunner {
   public void run(ApplicationArguments args) {
     Artist artist = Artist.builder()
             .name("Andy")
-            .surname("Smith")
-            .email("java@mail.ua")
-            .age(20)
-            .course("IT")
             .build();
     artistRepository.save(artist);
 
@@ -66,23 +62,17 @@ public class TestData implements ApplicationRunner {
     productRepository.save(testProduct);
     artist = Artist.builder()
         .name("Madison")
-        .surname("Jones")
-        .email("java@gmail.com")
-        .age(20)
-        .course("IT")
         .build();
     artistRepository.save(artist);
 
     artist = Artist.builder()
         .name("George")
-        .surname("Davies")
-        .email("spring@mail.com")
-        .age(20)
-        .course("IT")
         .build();
 
 
     Image image = Image.builder().productId(1L).image(new File("src/main/resources/static/rammstein.jpeg")).build();
+    repository.save(image);
+    image = Image.builder().productId(2L).image(new File("src/main/resources/static/black.jpeg")).build();
     repository.save(image);
     artistRepository.save(artist);
   }

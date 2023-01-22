@@ -52,15 +52,4 @@ public class ArtistServiceImpl implements ArtistService {
     return getArtist(artist.getId()).map(t -> artistRepository.save(artist));
   }
 
-
-  @Override
-  public List<Artist> findByNameAndSurname(Optional<String> name, Optional<String> surname) {
-    return artistRepository.findArtistsByNameLikeAndSurnameLike(name, surname);
-  }
-
-  @Override
-  public List<Artist> findByNameOrSurname(Optional<String> name, Optional<String> surname) {
-    return artistRepository.findArtistsByNameLikeOrSurnameLike(name, surname);
-  }
-
 }
