@@ -22,6 +22,10 @@ h1{
   background-color: #EAEAEA;
   padding: 20px;
 }
+.loadingSpinner {
+  margin-left: 50%;
+  margin-right: 50%;
+}
 .comment-container{
   height: 40px;
   border-radius: 25px;

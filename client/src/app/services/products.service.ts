@@ -20,6 +20,10 @@ export class ProductsService {
     }));
   }
 
+  getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(PRODUCTS_API+"?id=" + id);
+  }
+
   createProduct(product: any): Observable<any> {
     return this.http.post(PRODUCTS_API,product);
   }

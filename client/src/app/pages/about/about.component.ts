@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Artist} from "../../models/Artist";
 import {Product} from "../../models/Product";
 import {Type} from "../../models/Type";
+import {ProductsService} from "../../services/products.service";
 
 @Component({
   selector: 'app-about',
@@ -11,22 +12,22 @@ import {Type} from "../../models/Type";
 })
 
 export class AboutComponent implements OnInit{
-  constructor(private Activatedroute:ActivatedRoute, private router:Router){}
+  constructor(private productsService: ProductsService, private Activatedroute:ActivatedRoute, private router:Router){}
 
   information: string;
 
   sing1: Artist = {
     id: 1, name: "Ala"
   }
-  prod1: Product = {
-    comments: [], image: undefined, type: Type.CD,
-    cost: 10, description: "Ala ma kota a kot ma ale", id: 1, artist: this.sing1
-  }
+  product: Product ;
   ngOnInit(): void {
     this.Activatedroute.queryParams.subscribe(params => {
       this.information = params['product']
     })
-    console.log(this.information)
+    this.productsService.getProduct(Number(this.information)).subscribe( x=>{
+      this.product = x;
+      console.log(x.artist)
+    })
   }
   addToCart(id: number): void{
     console.log('add'  + id)

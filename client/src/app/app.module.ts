@@ -23,6 +23,8 @@ import {MatGridList, MatGridListModule} from "@angular/material/grid-list";
 import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MatMenuModule,
     MatGridListModule,
     MatPaginatorModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [authInterceptorProviders, authErrorInterceptorProvider],
   bootstrap: [AppComponent]
