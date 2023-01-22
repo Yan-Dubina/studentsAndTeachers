@@ -12,7 +12,7 @@
   <div class="description">
     <p>{{product.description}}</p>
   </div>
-  <div *ngIf="product.comments" class="comment">
+  <div *ngIf="product.comments?.length !== 0" class="comment">
     <div *ngFor="let comment of product.comments " class="comment-container">
       <p class="comment-content">{{comment.description}}</p>
     </div>

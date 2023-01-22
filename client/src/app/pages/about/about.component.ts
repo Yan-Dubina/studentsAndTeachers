@@ -26,7 +26,7 @@ export class AboutComponent implements OnInit{
     })
     this.productsService.getProduct(Number(this.information)).subscribe( x=>{
       this.product = x;
-      console.log(x.artist)
+      // console.log(x)
     })
   }
   addToCart(id: number): void{

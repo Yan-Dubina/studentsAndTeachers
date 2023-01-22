@@ -2,7 +2,7 @@
   <img mat-card-lg-image [src]= "'data:image/JPEG;base64,'+this.product.image" class="mb-2">
   <mat-card-content>
     <p>Type: {{product.type}}</p>
-    <p>Artist: {{product.artist}}</p>
+    <p>Artist: {{product.artist.name}}</p>
     <p>Price: <span class="font-bold">{{product.cost | currency:''}}</span></p>
     <p>Description: {{product.description}}</p>
   </mat-card-content>
