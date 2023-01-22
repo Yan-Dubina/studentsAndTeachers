@@ -16,5 +16,4 @@ public class CommentDTO {
     private String shortDescription;
     private Date date;
     private Integer rate;
-    private Product product;
 }

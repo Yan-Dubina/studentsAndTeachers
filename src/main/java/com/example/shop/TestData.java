@@ -39,7 +39,7 @@ public class TestData implements ApplicationRunner {
     Artist artist = Artist.builder()
             .name("Andy")
             .build();
-    artistRepository.save(artist);
+    artist = artistRepository.save(artist);
 
 
     Product testProduct = Product.builder()
@@ -48,10 +48,11 @@ public class TestData implements ApplicationRunner {
             .artists(List.of(artist))
             .description("test")
             .comments(Collections.emptyList()).build();
-
-    Comment comment = Comment.builder().description("description")
+    Comment comment1 = Comment.builder().description("description").date(new Date(100000L))
             .shortDescription("short").product(productRepository.save(testProduct)).rate(3).build();
-    commentRepository.save(comment);
+
+    Comment comment = Comment.builder().description("description").date(new Date(100000L))
+            .shortDescription("short").product(productRepository.save(testProduct)).rate(3).build();
 
     testProduct = Product.builder()
             .type(Type.CD)

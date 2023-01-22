@@ -16,7 +16,7 @@ public class ProductDTO {
   private Type type;
   private String description;
   private Long cost;
-  private List<Comment> comments;
+  private List<CommentDTO> comments;
   private List<ArtistDTO> artists;
   private byte[] image;
 }

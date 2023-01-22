@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Builder
 @Data
@@ -19,7 +20,7 @@ public class Comment {
 
     private String description;
     private String shortDescription;
-    //private Date date;
+    private Date date;
     private Integer rate;
 
     @ManyToOne

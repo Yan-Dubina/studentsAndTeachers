@@ -24,6 +24,8 @@ public class ProductMapper {
   private final ArtistMapper artistMapper;
   @Autowired
   ImageService imageService;
+  @Autowired
+  CommentMapper commentMapper;
 
   public ProductMapper(ArtistRepository artistRepository, ArtistMapper artistMapper) {
     this.artistRepository = artistRepository;
@@ -34,7 +36,7 @@ public class ProductMapper {
     try {
       return ProductDTO.builder()
               .artists(product.getArtists().stream().map(artistMapper::domainToDTO).collect(Collectors.toList()))
-              .comments(product.getComments())
+              .comments(product.getComments().stream().map(comment -> commentMapper.domainToDTO(comment)).collect(Collectors.toList()))
               .cost(product.getCost())
               .id(product.getId())
               .image(FileUtils.readFileToByteArray(imageService.getImageForProduct(product.getId())))
@@ -43,7 +45,7 @@ public class ProductMapper {
     } catch (Exception ignored) {
       return ProductDTO.builder()
               .artists(product.getArtists().stream().map(artistMapper::domainToDTO).collect(Collectors.toList()))
-              .comments(product.getComments())
+              .comments(product.getComments().stream().map(comment -> commentMapper.domainToDTO(comment)).collect(Collectors.toList()))
               .cost(product.getCost())
               .id(product.getId())
               .type(product.getType())
