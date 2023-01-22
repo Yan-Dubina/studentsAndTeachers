@@ -23,7 +23,7 @@ public class SecSecurityConfig {
                 .roles("USER")
                 .build();
         UserDetails admin = User.withUsername("admin")
-                .password(passwordEncoder().encode("admin"))
+                .password("admin")//passwordEncoder().encode("admin"))
                 .roles("ADMIN")
                 .build();
         return new InMemoryUserDetailsManager(user1, admin);
