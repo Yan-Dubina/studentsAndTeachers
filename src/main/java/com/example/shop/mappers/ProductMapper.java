@@ -35,7 +35,7 @@ public class ProductMapper {
   public ProductDTO domainToDTO(Product product) {
     try {
       return ProductDTO.builder()
-              .artists(artistMapper.domainToDTO(product.getArtist()))
+              .artist(artistMapper.domainToDTO(product.getArtist()))
               .comments(product.getComments().stream().map(comment -> commentMapper.domainToDTO(comment)).collect(Collectors.toList()))
               .cost(product.getCost())
               .id(product.getId())
@@ -44,7 +44,7 @@ public class ProductMapper {
               .build();
     } catch (Exception ignored) {
       return ProductDTO.builder()
-              .artists(artistMapper.domainToDTO(product.getArtist()))
+              .artist(artistMapper.domainToDTO(product.getArtist()))
               .comments(product.getComments().stream().map(comment -> commentMapper.domainToDTO(comment)).collect(Collectors.toList()))
               .cost(product.getCost())
               .id(product.getId())
