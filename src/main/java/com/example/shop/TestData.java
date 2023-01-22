@@ -74,8 +74,7 @@ public class TestData implements ApplicationRunner {
     repository.save(image);
     artistRepository.save(artist);
     ProductsOrder order = new ProductsOrder();
-    Product rod = productRepository.findById(2L).get();
-    order.setProducts(List.of(testProduct, rod));
+    order.setProducts(List.of(testProduct));
     ShopUser user = new ShopUser();
     user = userService.save(user);
     order.setShopUser(user);
