@@ -1,14 +1,9 @@
 package com.example.shop;
 
-import com.example.shop.domain.Comment;
-import com.example.shop.domain.Image;
-import com.example.shop.domain.Product;
-import com.example.shop.domain.Artist;
+import com.example.shop.domain.*;
 import com.example.shop.enums.Type;
-import com.example.shop.repository.CommentRepository;
-import com.example.shop.repository.ImageRepository;
-import com.example.shop.repository.ProductRepository;
-import com.example.shop.repository.ArtistRepository;
+import com.example.shop.repository.*;
+import com.example.shop.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -27,6 +22,11 @@ public class TestData implements ApplicationRunner {
   private CommentRepository commentRepository;
   @Autowired
   private ImageRepository repository;
+  @Autowired
+  private UserService userService;
+
+  @Autowired
+  private OrderRepository orderRepository;
 
   public TestData(ProductRepository productRepository, ArtistRepository artistRepository, CommentRepository commentRepository) {
     this.productRepository = productRepository;
@@ -73,6 +73,13 @@ public class TestData implements ApplicationRunner {
     image = Image.builder().productId(2L).image(new File("src/main/resources/static/black.jpeg")).build();
     repository.save(image);
     artistRepository.save(artist);
+    ProductsOrder order = new ProductsOrder();
+    Product rod = productRepository.findById(2L).get();
+    order.setProducts(List.of(testProduct, rod));
+    ShopUser user = new ShopUser();
+    user = userService.save(user);
+    order.setShopUser(user);
+    orderRepository.save(order);
   }
 }
 
