@@ -23,6 +23,11 @@ public class OrderServiceImpl implements OrderService {
     UserService userService;
 
     @Override
+    public Optional<ProductsOrder> getOrderById(Long id) {
+        return orderRepository.findById(id);
+    }
+
+    @Override
     public ProductsOrder getOrderForUser(ShopUser shopUser) {
         return orderRepository.findById(shopUser.productsOrder.id).orElse(null);
     }

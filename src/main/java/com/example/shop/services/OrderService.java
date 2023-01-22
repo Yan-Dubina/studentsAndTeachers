@@ -5,8 +5,11 @@ import com.example.shop.domain.Product;
 import com.example.shop.domain.ShopUser;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface OrderService {
+
+    Optional<ProductsOrder> getOrderById(Long id);
 
     ProductsOrder getOrderForUser(ShopUser shopUser);
 

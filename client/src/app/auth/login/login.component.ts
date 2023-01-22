@@ -21,9 +21,9 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder) {
 
-    if (this.tokenStorage.getUser()) {
-      this.router.navigate(['main']);
-    }
+    // if (this.tokenStorage.getToken()) {
+    //   this.router.navigate(['/main']);
+    // }
     this.loginForm = this.createLoginForm();
   }
 
@@ -41,18 +41,19 @@ export class LoginComponent implements OnInit {
     this.authService.login({
       username: this.loginForm.value.username,
       password: this.loginForm.value.password
-    }).subscribe(data =>{
-      console.log(data);
-
-      this.tokenStorage.save(data.token);
-      this.tokenStorage.saveUser(data);
-
-      this.notificationService.showSnackBar('Success');
-      this.router.navigate(['/']);
-      window.location.reload();
-    }, error => {
-      console.log(error);
-      this.notificationService.showSnackBar(error.message);
+    }).subscribe(isValid => {
+      console.log(isValid);
+      if (isValid) {
+        // sessionStorage.setItem(
+        //   'token',
+        //   btoa(this.loginForm.value.username + ':' + this.loginForm.value.password)
+        // );
+        this.notificationService.showSnackBar('Success');
+        //this.router.navigate(['main'])
+      } else {
+        this.notificationService.showSnackBar("Authentication failed.");
+        alert()
+      }
     });
   }
 
