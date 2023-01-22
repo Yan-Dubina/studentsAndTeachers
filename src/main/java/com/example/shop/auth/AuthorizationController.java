@@ -1,6 +1,7 @@
 package com.example.shop.auth;
 
 import com.example.shop.domain.ShopUser;
+import com.example.shop.dto.LoginReq;
 import com.example.shop.dto.ProductDTO;
 import com.example.shop.dto.RegistryRequest;
 import com.example.shop.mappers.UserMapper;
@@ -37,10 +38,10 @@ public class AuthorizationController {
     UserMapper userMapper;
 
     @PostMapping("/login")
-    public ResponseEntity<Boolean> login(@RequestBody String login, String password) {
-        if (manager.userExists(login)) {
-            UserDetails details = manager.loadUserByUsername(login);
-            boolean isCorrect = encoder.encode(password).equals(details.getPassword());
+    public ResponseEntity<Boolean> login(@RequestBody LoginReq req) {
+        if (manager.userExists(req.getLogin())) {
+            UserDetails details = manager.loadUserByUsername(req.getLogin());
+            boolean isCorrect = encoder.encode(req.getPassword()).equals(details.getPassword());
             if (isCorrect) {
                 return ResponseEntity.ok(true);
             }
