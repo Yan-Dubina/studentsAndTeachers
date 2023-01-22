@@ -29,6 +29,6 @@ public class Product {
   @OneToMany
   private List<Comment> comments;
 
-  @ManyToMany
-  private List<Artist> artists;
+  @ManyToOne
+  private Artist artist;
 }

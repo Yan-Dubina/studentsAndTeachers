@@ -45,7 +45,7 @@ public class TestData implements ApplicationRunner {
     Product testProduct = Product.builder()
             .type(Type.VINYL)
             .cost(100L)
-            .artists(List.of(artist))
+            .artist(artist)
             .description("test")
             .comments(Collections.emptyList()).build();
     java.util.Date date = new java.util.Date();
@@ -58,7 +58,7 @@ public class TestData implements ApplicationRunner {
     testProduct = Product.builder()
             .type(Type.CD)
             .cost(100L)
-            .artists(List.of(artist))
+            .artist(artist)
             .description("test")
             .comments(List.of(commentRepository.save(comment))).build();
     productRepository.save(testProduct);
