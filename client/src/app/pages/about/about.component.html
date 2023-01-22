@@ -5,9 +5,10 @@
     <div class="main-title">
       <h1>{{product.type}}</h1>
       <h4>{{product.artist.name}}</h4>
-      <button (click)="addToCart(product.id)">Add to cart</button>
+      <button (click)="addToCart(product.id)" mat-button>Add to cart</button>
     </div>
   </div>
+  <button [routerLink]="['/']" mat-button>Main Page</button>
   <div class="description">
     <p>{{product.description}}</p>
   </div>
