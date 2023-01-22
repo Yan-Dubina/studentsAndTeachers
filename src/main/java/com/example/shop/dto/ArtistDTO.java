@@ -15,13 +15,6 @@ public class ArtistDTO {
 
   String name;
 
-  String surname;
-
-  String email;
-
-  int age;
-
   List<ProductDTO> vinyls;
 
-  String subject;
 }
